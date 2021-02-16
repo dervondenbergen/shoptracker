@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Elgato Solid Arm",
+        "sites": [
+            {
+                "name": "elgato.com",
+                "link": "https://www.elgato.com/de/solid-arm",
+                "file": {
+                    "url": "https://dealer-edge.elgato.com/products/catalogs/f9edac4a-fa13-412c-9f1e-21c2c73a7c22.json",
+                    "selectors": [
+                        {
+                            "name": "DE Region",
+                            "selector": ".regions.DE.purchasable",
+                            "test": true
+                        },
+                        {
+                            "name": "EU Region",
+                            "selector": ".regions.EU.purchasable",
+                            "test": true
+                        }
+                    ],
+                    "type": "json"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Elgato Green Screen",
+        "sites": [
+            {
+                "name": "elgato.com",
+                "link": "https://www.elgato.com/de/gaming/green-screen",
+                "file": {
+                    "url": "https://dealer-edge.elgato.com/products/catalogs/10737390-9925-4aaa-a8c9-bd65eee0bca2.json",
+                    "selectors": [
+                        {
+                            "name": "DE Region",
+                            "selector": ".regions.DE.purchasable",
+                            "test": true
+                        },
+                        {
+                            "name": "EU Region",
+                            "selector": ".regions.EU.purchasable",
+                            "test": true
+                        }
+                    ],
+                    "type": "json"
+                }
+            }
+        ]
+    }
+]
