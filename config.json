@@ -9,17 +9,33 @@
                     "url": "https://dealer-edge.elgato.com/products/catalogs/f9edac4a-fa13-412c-9f1e-21c2c73a7c22.json",
                     "selectors": [
                         {
-                            "name": "DE Region",
+                            "name": "DE Region verfügbar",
                             "selector": ".regions.DE.purchasable",
                             "test": true
                         },
                         {
-                            "name": "EU Region",
+                            "name": "EU Region verfügbar",
                             "selector": ".regions.EU.purchasable",
                             "test": true
                         }
                     ],
                     "type": "json"
+                }
+            },
+            {
+                "name": "Geizhals",
+                "link": "https://geizhals.at/elgato-multi-mount-solid-arm-10aag9901-a2415931.html",
+                "file": {
+                    "url": "https://geizhals.at/elgato-multi-mount-solid-arm-10aag9901-a2415931.html?t=alle&plz=&va=b&vl=at&hloc=at&hloc=de&hloc=pl&hloc=uk&hloc=eu&v=l#offerlist",
+                    "selectors": [
+                        {
+                            "name": "Liste nicht leer",
+                            "selector": ".steel_list_container .row",
+                            "method": "elements.length > 0",
+                            "test": true
+                        }
+                    ],
+                    "type": "html"
                 }
             }
         ]
@@ -34,12 +50,12 @@
                     "url": "https://dealer-edge.elgato.com/products/catalogs/10737390-9925-4aaa-a8c9-bd65eee0bca2.json",
                     "selectors": [
                         {
-                            "name": "DE Region",
+                            "name": "DE Region verfügbar",
                             "selector": ".regions.DE.purchasable",
                             "test": true
                         },
                         {
-                            "name": "EU Region",
+                            "name": "EU Region verfügbar",
                             "selector": ".regions.EU.purchasable",
                             "test": true
                         }

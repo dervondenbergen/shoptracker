@@ -3,6 +3,7 @@
 require("dotenv").config({ path: __dirname + '/.env' });
 
 const jq = require('node-jq');
+const cheerio = require('cheerio');
 const got = require('got');
 
 const config = require('./config.json');
@@ -65,23 +66,43 @@ const serverLog = (message, mention, serverTag) => {
             	const response = await got(file.url);
 
                 for (selector of file.selectors) {
-                    
-                    const data = await jq.run(selector.selector, response.body, { input: 'string', output: 'json' });
 
-                    const requiredData = selector.test;
+                    var data = null;
 
-                    const available = data == requiredData;
+                    if (file.type === 'json') {
 
-                    console.log('    ', `${selector.name} verfügbar`, available);
+                        data = await jq.run(selector.selector, response.body, { input: 'string', output: 'json' });
 
-                    if (available) {
-                        allavailable.push(`**${product.name}** — ${selector.name} verfügbar: ${site.link}`)
+                    } else if (file.type === 'html') {
+
+                        const $ = cheerio.load(response.body);
+
+                        var dataFunction = new Function('elements', `return ${selector.method}`);
+
+                        const elements = $(selector.selector);
+
+                        data = dataFunction(elements);
+
+                    }
+
+                    if (data !== null) {
+
+                        const requiredData = selector.test;
+
+                        const available = data == requiredData;
+
+                        console.log('    ', `${selector.name}`, available);
+
+                        if (available) {
+                            allavailable.push(`**${product.name}** — ${selector.name} verfügbar: ${site.link}`)
+                        }
+
                     }
 
                 }
 
             } catch (error) {
-                serverLog('Fetching Data failed: ' + error, true, {type: 'error', tag: 'ERROR'});
+                serverLog('Getting Information failed: ' + error, true, {type: 'error', tag: 'ERROR'});
                 console.log(error);
             }
 
