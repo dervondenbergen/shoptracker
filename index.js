@@ -6,7 +6,7 @@ const jq = require('node-jq');
 const cheerio = require('cheerio');
 const got = require('got');
 
-const config = require('./config.json');
+const config = require('./config');
 
 const logToDiscord = (options) => {
     const notificationHook = process.env.NOTIFICATION_CHANNEL;
@@ -77,11 +77,9 @@ const serverLog = (message, mention, serverTag) => {
 
                         const $ = cheerio.load(response.body);
 
-                        var dataFunction = new Function('elements', `return ${selector.method}`);
-
                         const elements = $(selector.selector);
 
-                        data = dataFunction(elements);
+                        data = selector.method(elements, $);
 
                     }
 

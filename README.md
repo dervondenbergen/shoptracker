@@ -6,6 +6,7 @@ Bot which fetches the availability of an product within an online shop and posts
 
 |Name|Version|
 |---|---|
+|atob|^2.1.2|
 |cheerio|1.0.0-rc.5|
 |dotenv|^8.2.0|
 |got|^11.8.1|
