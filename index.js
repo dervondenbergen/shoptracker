@@ -5,6 +5,7 @@ require("dotenv").config({ path: __dirname + '/.env' });
 const jq = require('node-jq');
 const cheerio = require('cheerio');
 const got = require('got');
+const fs = require('fs');
 
 const config = require('./config');
 
@@ -46,6 +47,16 @@ const serverLog = (message, mention, serverTag) => {
         username: process.env.NOTIFICATION_NAME,
         content: content
     })
+}
+
+try {
+    var availabletimeout = JSON.parse(fs.readFileSync(__dirname + '/availability.json', {encoding: 'utf-8'}));
+} catch (e) {
+    var availabletimeout = {};
+}
+
+const saveAvailability = () => {
+    fs.writeFileSync(__dirname + '/availability.json', JSON.stringify(availabletimeout, null, 2))
 }
 
 (async () => {
@@ -92,7 +103,19 @@ const serverLog = (message, mention, serverTag) => {
                         console.log('    ', `${selector.name}`, available);
 
                         if (available) {
-                            allavailable.push(`**${product.name}** — ${selector.name} verfügbar: ${site.link}`)
+                            const availabilityname = `${site.name}/${product.name}/${selector.name}`
+                            const lastPost = availabletimeout[availabilityname];
+                            if (lastPost && selector.timeout) {
+                                const timeSinceLastPost = Date.now() - lastPost;
+                                const timeoutInMs = selector.timeout * 60 * 1000;
+
+                                if (timeoutInMs > timeSinceLastPost) {
+                                    console.log('    ', '- Already posted on Discord')
+                                    availabletimeout[availabilityname] = Date.now();
+                                    continue;
+                                }
+                            }
+                            allavailable.push(`**${product.name}** — ${selector.name}: ${site.link}`)
                         }
 
                     }
@@ -111,6 +134,7 @@ const serverLog = (message, mention, serverTag) => {
     if (allavailable.length > 0) {
         serverLog(allavailable.join('\n'), true)
     }
+        saveAvailability();
     
 })();
 

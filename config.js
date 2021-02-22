@@ -14,12 +14,14 @@ module.exports = [
                         {
                             name: "DE Region verfügbar",
                             selector: ".regions.DE.purchasable",
-                            test: true
+                            test: true,
+                            timeout: 15
                         },
                         {
                             name: "EU Region verfügbar",
                             selector: ".regions.EU.purchasable",
-                            test: true
+                            test: true,
+                            timeout: 15
                         }
                     ],
                     type: "json"
@@ -35,7 +37,8 @@ module.exports = [
                             name: "Liste nicht leer",
                             selector: ".steel_list_container .row",
                             method: (elements) => elements.length > 0,
-                            test: true
+                            test: true,
+                            timeout: 15
                         }
                     ],
                     type: "html"
@@ -55,12 +58,14 @@ module.exports = [
                         {
                             name: "DE Region verfügbar",
                             selector: ".regions.DE.purchasable",
-                            test: true
+                            test: true,
+                            timeout: 15
                         },
                         {
                             name: "EU Region verfügbar",
                             selector: ".regions.EU.purchasable",
-                            test: true
+                            test: true,
+                            timeout: 15
                         }
                     ],
                     type: "json"
@@ -172,7 +177,8 @@ module.exports = [
                                     return type && keinTausch && nichtReserviert && keinAdapter && price < 600 && price > 100
                                 }).length > 0;
                             },
-                            test: true
+                            test: true,
+                            timeout: 5
                         },
                         {
                             name: "3070 unter €800",
@@ -195,7 +201,8 @@ module.exports = [
                                     return type && keinTausch && nichtReserviert && keinAdapter && price < 800 && price > 100
                                 }).length > 0;
                             },
-                            test: true
+                            test: true,
+                            timeout: 5
                         },
                         {
                             name: "3080 unter €1000",
@@ -218,7 +225,8 @@ module.exports = [
                                     return type && keinTausch && nichtReserviert && keinAdapter && price < 1000 && price > 100
                                 }).length > 0;
                             },
-                            test: true
+                            test: true,
+                            timeout: 5
                         }
                     ],
                     type: "html"
