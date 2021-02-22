@@ -111,7 +111,6 @@ const saveAvailability = () => {
 
                                 if (timeoutInMs > timeSinceLastPost) {
                                     console.log('    ', '- Already posted on Discord')
-                                    availabletimeout[availabilityname] = Date.now();
                                     continue;
                                 }
                             }
