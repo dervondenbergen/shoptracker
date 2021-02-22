@@ -88,7 +88,7 @@ module.exports = [
                                     const type = /3070/.test(name)
                                     const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
                                   
-                                    return type && availability && price < 600
+                                    return type && availability && price < 600 && price > 100
                                 }).length > 0;
                             },
                             test: true
@@ -104,7 +104,7 @@ module.exports = [
                                     const type = /3070/.test(name)
                                     const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
                                   
-                                    return type && availability && price < 800
+                                    return type && availability && price < 800 && price > 100
                                 }).length > 0;
                             },
                             test: true
@@ -120,7 +120,23 @@ module.exports = [
                                     const type = /3080/.test(name)
                                     const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
                                   
-                                    return type && availability && price < 1000
+                                    return type && availability && price < 1000 && price > 100
+                                }).length > 0;
+                            },
+                            test: true
+                        },
+                        {
+                            name: "3090 unter €1800",
+                            selector: ".js-listing-item-GTM",
+                            method: (elements, $) => {
+                                return elements.filter((i, c) => {
+                                    const card = $(c);
+                                    const price = parseInt(card.data('price'), 10);
+                                    const name = card.find('[title]').attr('title');
+                                    const type = /3090/.test(name)
+                                    const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
+                                  
+                                    return type && availability && price < 1800 && price > 100
                                 }).length > 0;
                             },
                             test: true
@@ -153,7 +169,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                                                       
-                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 600
+                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 600 && price > 100
                                 }).length > 0;
                             },
                             test: true
@@ -176,7 +192,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                                                       
-                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 800
+                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 800 && price > 100
                                 }).length > 0;
                             },
                             test: true
@@ -199,9 +215,73 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                   
-                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 1000
+                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 1000 && price > 100
                                 }).length > 0;
                             },
+                            test: true
+                        }
+                    ],
+                    type: "html"
+                }
+            },
+            {
+                name: "Geizhals - 3060 unter €600",
+                link: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3060&v=l&bpmax=600",
+                file: {
+                    url: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3060&v=l&bpmax=600",
+                    selectors: [
+                        {
+                            name: "Liste nicht leer",
+                            selector: ".productlist__product--available",
+                            method: (elements) => elements.length > 0,
+                            test: true
+                        }
+                    ],
+                    type: "html"
+                }
+            },
+            {
+                name: "Geizhals - 3070 unter €800",
+                link: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3070&v=l&bpmax=800",
+                file: {
+                    url: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3070&v=l&bpmax=800",
+                    selectors: [
+                        {
+                            name: "Liste nicht leer",
+                            selector: ".productlist__product--available",
+                            method: (elements) => elements.length > 0,
+                            test: true
+                        }
+                    ],
+                    type: "html"
+                }
+            },
+            {
+                name: "Geizhals - 3080 unter €1000",
+                link: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3080&v=l&bpmax=1000",
+                file: {
+                    url: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3080&v=l&bpmax=1000",
+                    selectors: [
+                        {
+                            name: "Liste nicht leer",
+                            selector: ".productlist__product--available",
+                            method: (elements) => elements.length > 0,
+                            test: true
+                        }
+                    ],
+                    type: "html"
+                }
+            },
+            {
+                name: "Geizhals - 3090 unter €1800",
+                link: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3090&v=l&bpmax=1800",
+                file: {
+                    url: "https://geizhals.at/?cat=gra16_512&xf=9816_03+05+16+-+RTX+3090&v=l&bpmax=1800",
+                    selectors: [
+                        {
+                            name: "Liste nicht leer",
+                            selector: ".productlist__product--available",
+                            method: (elements) => elements.length > 0,
                             test: true
                         }
                     ],
