@@ -116,6 +116,7 @@ const saveAvailability = () => {
                                 }
                             }
                             allavailable.push(`**${product.name}** — ${selector.name}: ${site.link}`)
+                            availabletimeout[availabilityname] = Date.now();
                         }
 
                     }
