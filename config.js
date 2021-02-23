@@ -167,6 +167,7 @@ module.exports = [
                                     const keinTausch = !/tausch/i.test(name);
                                     const nichtReserviert = !/reserviert/i.test(name);
                                     const keinAdapter = !/adapter/i.test(name);
+                                    const nicht2000 = !/20\d0/i.test(name)
 
                                     const infoplaceholder = card.find('.additional-info-container div:last-of-type').attr('id');
                                     const infoscript = card.find('.additional-info-container script').html();
@@ -174,7 +175,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                                                       
-                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 600 && price > 100
+                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 600 && price > 100
                                 }).length > 0;
                             },
                             test: true,
@@ -191,6 +192,7 @@ module.exports = [
                                     const keinTausch = !/tausch/i.test(name);
                                     const nichtReserviert = !/reserviert/i.test(name);
                                     const keinAdapter = !/adapter/i.test(name);
+                                    const nicht2000 = !/20\d0/i.test(name)
 
                                     const infoplaceholder = card.find('.additional-info-container div:last-of-type').attr('id');
                                     const infoscript = card.find('.additional-info-container script').html();
@@ -198,7 +200,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                                                       
-                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 800 && price > 100
+                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 800 && price > 100
                                 }).length > 0;
                             },
                             test: true,
@@ -215,6 +217,7 @@ module.exports = [
                                     const keinTausch = !/tausch/i.test(name)
                                     const nichtReserviert = !/reserviert/i.test(name)
                                     const keinAdapter = !/adapter/i.test(name)
+                                    const nicht2000 = !/20\d0/i.test(name)
 
                                     const infoplaceholder = card.find('.additional-info-container div:last-of-type').attr('id');
                                     const infoscript = card.find('.additional-info-container script').html();
@@ -222,7 +225,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                   
-                                    return type && keinTausch && nichtReserviert && keinAdapter && price < 1000 && price > 100
+                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 1000 && price > 100
                                 }).length > 0;
                             },
                             test: true,
