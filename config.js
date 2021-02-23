@@ -15,13 +15,13 @@ module.exports = [
                             name: "DE Region verfügbar",
                             selector: ".regions.DE.purchasable",
                             test: true,
-                            timeout: 15
+                            timeout: 5
                         },
                         {
                             name: "EU Region verfügbar",
                             selector: ".regions.EU.purchasable",
                             test: true,
-                            timeout: 15
+                            timeout: 5
                         }
                     ],
                     type: "json"
@@ -38,7 +38,7 @@ module.exports = [
                             selector: ".steel_list_container .row",
                             method: (elements) => elements.length > 0,
                             test: true,
-                            timeout: 15
+                            timeout: 5
                         }
                     ],
                     type: "html"
@@ -59,13 +59,13 @@ module.exports = [
                             name: "DE Region verfügbar",
                             selector: ".regions.DE.purchasable",
                             test: true,
-                            timeout: 15
+                            timeout: 60
                         },
                         {
                             name: "EU Region verfügbar",
                             selector: ".regions.EU.purchasable",
                             test: true,
-                            timeout: 15
+                            timeout: 60
                         }
                     ],
                     type: "json"
