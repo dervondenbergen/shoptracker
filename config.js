@@ -93,7 +93,7 @@ module.exports = [
                                     const type = /3070/.test(name)
                                     const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
                                   
-                                    return type && availability && price < 600 && price > 100
+                                    return type && availability && price < 600 && price > 200
                                 }).length > 0;
                             },
                             test: true
@@ -109,7 +109,7 @@ module.exports = [
                                     const type = /3070/.test(name)
                                     const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
                                   
-                                    return type && availability && price < 800 && price > 100
+                                    return type && availability && price < 800 && price > 200
                                 }).length > 0;
                             },
                             test: true
@@ -125,7 +125,7 @@ module.exports = [
                                     const type = /3080/.test(name)
                                     const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
                                   
-                                    return type && availability && price < 1000 && price > 100
+                                    return type && availability && price < 1000 && price > 200
                                 }).length > 0;
                             },
                             test: true
@@ -141,7 +141,7 @@ module.exports = [
                                     const type = /3090/.test(name)
                                     const availability = card.find('.add2cart_Btn').text().trim() == 'In den Warenkorb'
                                   
-                                    return type && availability && price < 1800 && price > 100
+                                    return type && availability && price < 1800 && price > 200
                                 }).length > 0;
                             },
                             test: true
@@ -175,7 +175,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                                                       
-                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 600 && price > 100
+                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 600 && price > 200
                                 }).length > 0;
                             },
                             test: true,
@@ -200,7 +200,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                                                       
-                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 800 && price > 100
+                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 800 && price > 200
                                 }).length > 0;
                             },
                             test: true,
@@ -225,7 +225,7 @@ module.exports = [
                                     
                                     const price = parseInt(cheerio.load(atob(pricehtml)).text().replace(/[\D\.]/g, ''), 10);
                                   
-                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 1000 && price > 100
+                                    return type && keinTausch && nichtReserviert && keinAdapter && nicht2000 && price < 1000 && price > 200
                                 }).length > 0;
                             },
                             test: true,
