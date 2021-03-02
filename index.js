@@ -66,17 +66,23 @@ const saveAvailability = () => {
     for (product of config) {
         console.log(product.name);
 
+        if (product.skip) continue;
+
         for (site of product.sites) {
 
             console.log('  ', `${site.name} (${site.link})`);
 
             const file = site.file;
 
+            if (site.skip) continue;
+
             try {
 
             	const response = await got(file.url);
 
                 for (selector of file.selectors) {
+
+                    if (selector.skip) continue;
 
                     var data = null;
 
