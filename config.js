@@ -4,6 +4,7 @@ const atob = require('atob');
 module.exports = [
     {
         name: "Elgato Solid Arm",
+        skip: true,
         sites: [
             {
                 name: "elgato.com",
