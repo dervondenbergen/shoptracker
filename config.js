@@ -3,6 +3,23 @@ const atob = require('atob');
 
 module.exports = [
     {
+        name: "Bobbie Goods! Coloring Book",
+        sites: [{
+            name: "shop",
+            link: "https://bobbiegoods.com/collections/frontpage/products/coloring-book-spring-summer-22",
+            file: {
+                url: "https://test.felix.dm/coloring-book.json",
+                selectors: [{
+                    name: "Nicht mehr Sold Out",
+                    selector: ".available",
+                    test: true,
+                    timeout: 1
+                }],
+                type: "json"
+            }
+        }]
+    },
+    {
         name: "Elgato Solid Arm",
         skip: true,
         sites: [
@@ -77,6 +94,7 @@ module.exports = [
     },
     {
         name: "RTX 3000",
+        skip: true,
         sites: [
             {
                 name: "NBB",
