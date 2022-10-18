@@ -3,7 +3,25 @@ const atob = require('atob');
 
 module.exports = [
     {
+        name: "Flipper Zero",
+        sites: [{
+            name: "Flipper Zero",
+            link: "https://lab401.com/products/flipper-zero?variant=42927883452646",
+            file: {
+                url: "https://test.felix.dm/flipper-zero.json",
+                selectors: [{
+                    name: "Nicht mehr Sold Out",
+                    selector: ".available",
+                    test: true,
+                    timeout: 1
+                }],
+                type: "json"
+            }
+        }]
+    },
+    {
         name: "Unifi Camera AI Theta",
+        skip: true,
         sites: [{
             name: "Europe Store",
             link: "https://eu.store.ui.com/collections/unifi-protect-cameras/products/uvc-ai-theta-ea",
@@ -21,6 +39,7 @@ module.exports = [
     },
     {
         name: "Bobbie Goods! Coloring Book",
+        skip: true,
         sites: [{
             name: "shop",
             link: "https://bobbiegoods.com/collections/frontpage/products/coloring-book-spring-summer-22",
