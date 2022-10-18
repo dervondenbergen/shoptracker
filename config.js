@@ -3,6 +3,23 @@ const atob = require('atob');
 
 module.exports = [
     {
+        name: "Unifi Camera AI Theta",
+        sites: [{
+            name: "Europe Store",
+            link: "https://eu.store.ui.com/collections/unifi-protect-cameras/products/uvc-ai-theta-ea",
+            file: {
+                url: "https://test.felix.dm/uvc-ai-theta-ea.json",
+                selectors: [{
+                    name: "Nicht mehr Sold Out",
+                    selector: ".available",
+                    test: true,
+                    timeout: 1
+                }],
+                type: "json"
+            }
+        }]
+    },
+    {
         name: "Bobbie Goods! Coloring Book",
         sites: [{
             name: "shop",
