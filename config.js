@@ -3,7 +3,25 @@ const atob = require('atob');
 
 module.exports = [
     {
+     	name: "Unifi Camera G5 Flex",
+        sites: [{
+            name: "Europe Store",
+            link: "https://eu.store.ui.com/collections/unifi-protect/products/camera-g5-flex-ea",
+            file: {
+                url: "https://test.felix.dm/g5-flex.json",
+                selectors: [{
+                    name: "Nicht mehr Sold Out",
+                    selector: ".available",
+                    test: true,
+                    timeout: 1
+                }],
+                type: "json"
+            }
+	}]
+    },
+    {
         name: "Flipper Zero",
+	skip: true,
         sites: [{
             name: "Flipper Zero",
             link: "https://lab401.com/products/flipper-zero?variant=42927883452646",
