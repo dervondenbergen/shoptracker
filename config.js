@@ -3,7 +3,26 @@ const atob = require('atob');
 
 module.exports = [
     {
+        name: "Unifi Switch Flex",
+        skip: true,
+        sites: [{
+            name: "Europe Store",
+            link: "https://eu.store.ui.com/collections/unifi-network-routing-switching/products/usw-flex",
+            file: {
+                url: "https://test.felix.dm/usw-flex.json",
+                selectors: [{
+                    name: "Nicht mehr Sold Out",
+                    selector: ".available",
+                    test: true,
+                    timeout: 1
+                }],
+                type: "json"
+            }
+        }]
+    },
+    {
      	name: "Unifi Camera G5 Flex",
+        skip: true,
         sites: [{
             name: "Europe Store",
             link: "https://eu.store.ui.com/collections/unifi-protect/products/camera-g5-flex-ea",
