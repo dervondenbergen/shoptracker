@@ -3,6 +3,23 @@ const atob = require('atob');
 
 module.exports = [
     {
+        name: "Figma Shirt Large",
+        sites: [{
+            name: "Europe Store",
+            link: "https://store-eu.figma.com/products/design-in-bloom-tee",
+            file: {
+                url: "https://test.felix.dm/figma-shirt.json",
+                selectors: [{
+                    name: "Nicht mehr Sold Out",
+                    selector: ".variants[]|select(.option1 == "L").available",
+                    test: true,
+                    timeout: 1
+                }],
+                type: "json"
+            }
+        }]
+    },
+    {
         name: "Unifi Switch Flex",
         skip: true,
         sites: [{
