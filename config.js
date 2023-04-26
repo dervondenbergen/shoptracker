@@ -11,7 +11,7 @@ module.exports = [
                 url: "https://test.felix.dm/figma-shirt.json",
                 selectors: [{
                     name: "Nicht mehr Sold Out",
-                    selector: ".variants[]|select(.option1 == "L").available",
+                    selector: ".variants[]|select(.option1 == \"L\").available",
                     test: true,
                     timeout: 1
                 }],
