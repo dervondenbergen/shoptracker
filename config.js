@@ -4,6 +4,7 @@ const atob = require('atob');
 module.exports = [
     {
         name: "Figma Shirt Large",
+        skip: true,
         sites: [{
             name: "Europe Store",
             link: "https://store-eu.figma.com/products/design-in-bloom-tee",
